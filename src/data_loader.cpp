@@ -12,7 +12,7 @@ std::vector<StockRecord> loadDataset(const std::string& filename) {
     std::string line;
 
     if (!file.is_open()) {
-        std::cerr << "Error: cannot open dataset: " << filename << std::endl;
+        std::cerr << "Error: cannot open dataset" << filename << std::endl;
         return records;
     }
 
