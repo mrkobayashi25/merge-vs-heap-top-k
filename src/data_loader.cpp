@@ -32,6 +32,7 @@ std::vector<StockRecord> loadDataset(const std::string& filename) {
             columns.push_back(columnValue);
         }
 
+        // expected columns: 0. date, 1. open, 2. high, 3. low, 4. close, 5. adjClose, 6. volume, 7.. ticker, 8. company
         if (columns.size() != 9) {
             continue;
         }
