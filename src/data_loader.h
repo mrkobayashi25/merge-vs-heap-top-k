@@ -5,6 +5,8 @@
 #include <vector>
 
 // rows from dataset
+// for comparision, use date (mm/dd/yyyy) + ticker (ex. AAPL_01-01-2020)
+// if there are duplicates, just ignore
 struct StockRecord {
     std::string date;
     double open;
