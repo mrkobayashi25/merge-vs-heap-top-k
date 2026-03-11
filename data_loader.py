@@ -3,8 +3,8 @@ from typing import List
 
 
 # rows from dataset
-# for comparison, use date (mm/dd/yyyy) + ticker (ex. AAPL_01-01-2020)
-# if there are duplicates, just ignore
+# records should filter by ticker
+# analyze by whatever metric user picks for top-k
 @dataclass
 class StockRecord:
     date: str
