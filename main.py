@@ -1,4 +1,4 @@
-from data_loader import loadDataset
+from data_loader import loadDataset, StockRecord
 
 VALID_METRICS = ["open", "high", "low", "close", "adjClose", "volume"]
 
@@ -7,8 +7,13 @@ def filterByTicker(records, ticker):
     return [record for record in records if record.ticker.upper() == ticker.upper()]
 
 
-def extractMetricValues(records, metric):
-    return [getattr(record, metric) for record in records]
+def formatTopKRecord(record, metric):
+    return (
+        f"Ticker: {record.ticker} | "
+        f"Date: {record.date} | "
+        f"Category: {metric} | "
+        f"Value: {getattr(record, metric)}"
+    )
 
 
 def main():
@@ -45,15 +50,37 @@ def main():
         print("No records found for that ticker.")
         return
 
-    metricValues = extractMetricValues(filteredData, metric)
-
     print("Selected ticker:", ticker)
     print("Selected metric:", metric)
     print("Selected K:", k)
-    print("First few metric values:", metricValues[:5])
 
-# later: call merge sort top-k and heap top-k
+    # remember, top k LARGEST values
+    # use full StockRecord objects
+    # compare records using the selected metric
+    # final output format should display ticker, date, category, and value
 
+    print("\nFirst few filtered records in display format:")
+    previewCount = min(5, len(filteredData))
+    for i in range(previewCount):
+        print(formatTopKRecord(filteredData[i], metric))
+
+    # merge sort here
+    # remember, top k LARGEST values
+    # merge sort should receive:
+    # filteredData, metric, k
+    # output should be full StockRecord objects in the same format
+
+    # heap here
+    # remember, top k LARGEST values
+    # heap should receive:
+    # filteredData, metric, k
+    # output should be full StockRecord objects in the same format
+
+    # both approaches should receive the same filteredData
+    # both approaches should use the same ticker
+    # both approaches should use the same metric
+    # both approaches should use the same K value
+    # both approaches should give output in the same format
 
 if __name__ == "__main__":
     main()

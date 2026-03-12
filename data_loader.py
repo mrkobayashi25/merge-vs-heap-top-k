@@ -5,6 +5,8 @@ from typing import List
 # rows from dataset
 # records should filter by ticker
 # analyze by whatever metric user picks for top-k
+# use full StockRecord objects for output
+# compare records using the selected metric
 @dataclass
 class StockRecord:
     date: str
