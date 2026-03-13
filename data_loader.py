@@ -58,7 +58,7 @@ def loadDataset(filename: str) -> List[StockRecord]:
 
                     records.append(record)
 
-                except:
+                except ValueError:
                     continue
 
     except FileNotFoundError:
