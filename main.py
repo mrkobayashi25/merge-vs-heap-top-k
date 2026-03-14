@@ -17,7 +17,7 @@ def formatTopKRecord(record, metric):
 
 
 def main():
-    data = loadDataset("../data/All_data.csv")
+    data = loadDataset("data/All_data.csv")
     print("Records loaded:", len(data))
 
     if len(data) == 0:
@@ -63,6 +63,15 @@ def main():
     previewCount = min(5, len(filteredData))
     for i in range(previewCount):
         print(formatTopKRecord(filteredData[i], metric))
+
+    # data flow for algorithms:
+    # first, loadDataset() loads full dataset
+    # second, filterByTicker() creates filtered list of StockRecord objects
+    # third, both algorithms receive the same filteredData
+    # lastly, algorithm interface: function(records, metric, k)
+    # records = filteredData
+    # metric = selected metric string
+    # k = positive integer
 
     # merge sort here
     # remember, top k LARGEST values

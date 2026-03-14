@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 from typing import List
+import csv
 
 
 # rows from dataset
@@ -26,16 +27,16 @@ def loadDataset(filename: str) -> List[StockRecord]:
 
     try:
         with open(filename, "r", encoding="utf-8") as file:
+            reader = csv.reader(file)
+
             # read/discard header row
-            file.readline()
+            next(reader, None)
 
-            for line in file:
-                line = line.strip()
+            for columns in reader:
 
-                if line == "":
+                # skip blank rows
+                if not columns:
                     continue
-
-                columns = line.split(",")
 
                 # expected columns: 0. date, 1. open, 2. high, 3. low, 4. close,
                 # 5. adjClose, 6. volume, 7. ticker, 8. company
