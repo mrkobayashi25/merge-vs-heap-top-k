@@ -73,13 +73,13 @@ def main():
     # metric = selected metric string
     # k = positive integer
 
-    # merge sort here
+    # merge sort call here
     # remember, top k LARGEST values
     # merge sort should receive:
     # filteredData, metric, k
     # output should be full StockRecord objects in the same format
 
-    # heap here
+    # heap sort call here
     # remember, top k LARGEST values
     # heap should receive:
     # filteredData, metric, k
