@@ -54,6 +54,7 @@ def main():
     print("Selected metric:", metric)
     print("Selected K:", k)
 
+
     # remember, top k LARGEST values
     # use full StockRecord objects
     # compare records using the selected metric
@@ -78,6 +79,15 @@ def main():
     # merge sort should receive:
     # filteredData, metric, k
     # output should be full StockRecord objects in the same format
+
+    #Merge_Sort
+    # We use the benchmark_trials function from your benchmark.py
+    ms_results, ms_runtimes, ms_avg = benchmark_trials(merge_sort_top_k, filteredData, metric, k)
+    print_benchmark_summary("Merge Sort", ms_runtimes, ms_avg)
+
+    print(f"\nTop {len(ms_results)} Results (Merge Sort):")
+    for record in ms_results:
+        print(formatTopKRecord(record, metric))
 
     # heap sort call here
     # remember, top k LARGEST values
