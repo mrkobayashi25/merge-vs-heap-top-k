@@ -26,8 +26,6 @@ def main():
         print("No data loaded.")
         return
 
-    print("First record:", data[0].ticker, data[0].date, data[0].close)
-
     ticker = input("Enter ticker: ").strip()
     metric = input("Enter metric (open, high, low, close, adjClose, volume): ").strip()
     k = input("Enter K: ").strip()
