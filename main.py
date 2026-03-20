@@ -61,11 +61,6 @@ def main():
     # compare records using the selected metric
     # final output format should display ticker, date, category, and value
 
-    print("\nFirst few filtered records in display format:")
-    previewCount = min(5, len(filteredData))
-    for i in range(previewCount):
-        print(formatTopKRecord(filteredData[i], metric))
-
     # data flow for algorithms:
     # first, loadDataset() loads full dataset
     # second, filterByTicker() creates filtered list of StockRecord objects
