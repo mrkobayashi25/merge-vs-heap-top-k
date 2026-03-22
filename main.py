@@ -19,14 +19,7 @@ def formatTopKRecord(record, metric):
     )
 
 
-def main():
-    data = loadDataset("data/All_data.csv")
-    print("Records loaded:", len(data))
-
-    if len(data) == 0:
-        print("No data loaded.")
-        return
-
+def runProgram(data):
     ticker = input("Enter ticker: ").strip()
     metric = input("Enter metric (open, high, low, close, adjClose, volume): ").strip()
     k = input("Enter K: ").strip()
@@ -69,7 +62,7 @@ def main():
     # metric = selected metric string
     # k = positive integer
 
-    # merge sort    
+    # merge sort
     ms_results, ms_runtimes, ms_avg = benchmark_trials(merge_sort_top_k, filteredData, metric, k)
     print_benchmark_summary("Merge Sort", ms_runtimes, ms_avg)
 
@@ -117,6 +110,29 @@ def main():
         print("Merge Sort was faster on this trial set.")
     else:
         print("Both approaches had the same average runtime.")
+
+
+# menu
+def main():
+    data = loadDataset("data/All_data.csv")
+    print("Records loaded:", len(data))
+
+    if len(data) == 0:
+        print("No data loaded.")
+        return
+
+    while True:
+        runProgram(data)
+
+        choice = input("\nEnter 'r' to run again or 'e' to exit: ").strip().lower()
+
+        if choice == "e":
+            print("Program ended.")
+            break
+
+        elif choice != "r":
+            print("Invalid choice. Program ended.")
+            break
 
 
 if __name__ == "__main__":
