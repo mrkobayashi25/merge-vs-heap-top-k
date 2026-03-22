@@ -16,9 +16,16 @@ How to run:
   - open a terminal in the project folder and run: python main.py
 
 When prompted: 
-  Records loaded: 108696
   Enter ticker: (here, users should enter one of the valid stock market tickers; AA, B, C, D, E, F, G, 
   H, IAC, J, K, L)
   Enter metric (open, high, low, close, adjClose, volume): (input one of the given metrics in the 
   prompt)
   Enter K: (this should be a positie integer)
+
+Metric Units
+  - open: opening stock price in USD (Value: xxx.xxxxxxx = Value $xxx.xx)
+  - high: highest stock price in USD (Value: xxx.xxxxxxx = Value $xxx.xx)
+  - low: lowest stock price in USD (Value: xxx.xxxxxxx = Value $xxx.xx)
+  - close: closing stock price in USD (Value: xxx.xxxxxxx = Value $xxx.xx)
+  - adjClose: adjusted closing stock price in USD (Value: xxx.xxxxxxx = Value $xxx.xx)
+  - volume: number of shares traded
