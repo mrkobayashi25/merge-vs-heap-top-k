@@ -9,7 +9,7 @@ Required files:
   - data_loader.py
   - benchmark.py
   - merge_sort.py
-  - heap_sort.py (to be added...)
+  - heap_sort.py
   - data/All_data.csv
 
 How to run:
