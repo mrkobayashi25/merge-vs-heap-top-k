@@ -1,6 +1,7 @@
 from data_loader import loadDataset, StockRecord
 from benchmark import benchmark_trials, print_benchmark_summary
 from merge_sort import merge_sort_top_k
+from heap_sort import heapsort_top_k
 
 VALID_METRICS = ["open", "high", "low", "close", "adjClose", "volume"]
 
@@ -68,6 +69,7 @@ def main():
     # metric = selected metric string
     # k = positive integer
 
+    # merge sort    
     ms_results, ms_runtimes, ms_avg = benchmark_trials(merge_sort_top_k, filteredData, metric, k)
     print_benchmark_summary("Merge Sort", ms_runtimes, ms_avg)
 
@@ -75,18 +77,19 @@ def main():
     for record in ms_results:
         print(formatTopKRecord(record, metric))
 
-    # heap sort call here
-    # remember, top k LARGEST values
-    # heap should receive:
-    # filteredData, metric, k
-    # output should be full StockRecord objects in the same format
+    # heap sort
+    heap_results, heap_runtimes, heap_avg = benchmark_trials(heapsort_top_k, filteredData, metric, k)
+    print_benchmark_summary("Heap Sort", heap_runtimes, heap_avg)
+
+    print(f"\nTop {len(heap_results)} Results (Heap Sort):")
+    for record in heap_results:
+        print(formatTopKRecord(record, metric))
 
     # both approaches should receive the same filteredData
     # both approaches should use the same ticker
     # both approaches should use the same metric
     # both approaches should use the same K value
     # both approaches should give output in the same format
-
 
 if __name__ == "__main__":
     main()
